@@ -2,12 +2,20 @@
 
 // function
 
-function generate_random_password($psw_length, $char_string_length, $char_list)
+/**
+ * 
+ * @param int $psw_length La lunghezza desiderata per la password da generare
+ * @param string $char_list La stringa che contiene i caratteri utili per generare la password
+ * 
+ * @return string La stringa contenete la password generata
+ */
+function generate_random_password($psw_length, $char_list)
 {
     $password_array = [];
+    $chars_length = strlen($char_list);
 
     while (count($password_array) < $psw_length) {
-        $random_index = rand(0, $char_string_length - 1);
+        $random_index = rand(0, $chars_length - 1);
         $password_array[] = $char_list[$random_index];
     }
 
@@ -16,7 +24,7 @@ function generate_random_password($psw_length, $char_string_length, $char_list)
 
 // variables
 $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`-=~!@#$%^&*()_+,./<>?;:[]{}\|';
-$chars_length = strlen($chars);
+
 
 // form
 $form_sendt = !empty($_GET);
@@ -24,7 +32,7 @@ $form_sendt = !empty($_GET);
 if ($form_sendt) {
     $password_length = (int) $_GET["password-length-selection"];
 
-    $generated_password = generate_random_password($password_length, $chars_length, $chars);
+    $generated_password = generate_random_password($password_length, $chars);
 }
 
 ?>
