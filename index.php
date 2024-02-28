@@ -1,9 +1,30 @@
 <?php
 
+// function
+
+function generate_random_password($psw_length, $char_string_length, $char_list)
+{
+    $password_array = [];
+
+    while (count($password_array) < $psw_length) {
+        $random_index = rand(0, $char_string_length - 1);
+        $password_array[] = $char_list[$random_index];
+    }
+
+    return implode("", $password_array);
+}
+
+// variables
+$chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`-=~!@#$%^&*()_+,./<>?;:[]{}\|';
+$chars_length = strlen($chars);
+
+// form
 $form_sendt = !empty($_GET);
 
 if ($form_sendt) {
-    $password_length = $_GET["password-length-selection"];
+    $password_length = (int) $_GET["password-length-selection"];
+
+    $generated_password = generate_random_password($password_length, $chars_length, $chars);
 }
 
 ?>
@@ -50,6 +71,13 @@ if ($form_sendt) {
                     </div>
 
                 </form>
+
+                <?php if ($form_sendt): ?>
+                    <h2 class="mt-3 d-inline-block h4 fw-bold">La password generata è:</h2>
+                    <span class="fs-5 ms-3">
+                        <?= $generated_password ?>
+                    </span>
+                <?php endif; ?>
             </div>
         </div>
     </div>
