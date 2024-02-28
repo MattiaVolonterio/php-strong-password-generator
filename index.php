@@ -74,6 +74,44 @@ require_once __DIR__ . "/partials/main.php";
                         </div>
                     </div>
 
+                    <!-- PASSWORD TYPE SELECTION -->
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <label class="form-label mb-0 fw-bold">Seleziona il tipo di caratteri da usare nella
+                                generazione della password</label>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check p-0">
+                                <input class="password-type" type="radio" name="password-type" id="password-type1"
+                                    value="all" <?= $psw_type == "all" ? "checked" : "" ?>>
+                                <label class="form-check-label" for="password-type1">
+                                    Tutti
+                                </label>
+                            </div>
+                            <div class="form-check p-0">
+                                <input class="password-type" type="radio" name="password-type" id="password-type2"
+                                    value="char+num" <?= $psw_type == "char+num" ? "checked" : "" ?>>
+                                <label class="form-check-label" for="password-type2">
+                                    Lettere + numeri
+                                </label>
+                            </div>
+                            <div class="form-check p-0">
+                                <input class="password-type" type="radio" name="password-type" id="password-type3"
+                                    value="char+spec" <?= $psw_type == "char+spec" ? "checked" : "" ?>>
+                                <label class="form-check-label" for="password-type3">
+                                    Lettere + Caratteri Speciali
+                                </label>
+                            </div>
+                            <div class="form-check p-0">
+                                <input class="password-type" type="radio" name="password-type" id="password-type4"
+                                    value="num+spec" <?= $psw_type == "num+spec" ? "checked" : "" ?>>
+                                <label class="form-check-label" for="password-type4">
+                                    Numeri + Caratteri Speciali
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <div class="col-2 mt-3">
                         <button class="btn btn-success">Genera Password</button>
