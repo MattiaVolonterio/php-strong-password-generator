@@ -41,7 +41,7 @@ require_once __DIR__ . "/partials/main.php";
                     </div>
                     <div class="col-6">
                         <input type="number" class="form-control" id="password-length" name="password-length-selection"
-                            min="8" max="16" value="<?= $form_sendt ? $password_length : "" ?>">
+                            min="8" max="24" value="<?= $form_sendt ? $password_length : "" ?>">
                     </div>
 
                     <div class="col-2 mt-3">
