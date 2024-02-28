@@ -7,7 +7,7 @@ require_once __DIR__ . "/function.php";
 // variables
 $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 $numbers = '0123456789';
-$special_chars = '`-=~!@#$%^&*()_+,./<>?;:[]{}\|';
+$special_chars = '`-=~!@#$%^&*()_+,./?;:[]{}\|';
 
 $char_num = $chars . $numbers;
 $char_spec = $chars . $special_chars;
@@ -42,6 +42,8 @@ if ($form_sendt) {
         }
 
         header("Location: ./showPassword.php");
+    } else {
+        header("Location: ./errorPage.php");
     }
 
 }
