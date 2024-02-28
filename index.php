@@ -49,13 +49,6 @@ require_once __DIR__ . "/partials/main.php";
                     </div>
 
                 </form>
-
-                <?php if ($form_sendt): ?>
-                    <h2 class="mt-3 d-inline-block h4 fw-bold">La password generata è:</h2>
-                    <span class="fs-5 ms-3">
-                        <?= $generated_password ?>
-                    </span>
-                <?php endif; ?>
             </div>
         </div>
     </div>

@@ -13,5 +13,10 @@ $form_sendt = !empty($_GET);
 if ($form_sendt) {
     $password_length = (int) $_GET["password-length-selection"];
 
-    $generated_password = generate_random_password($password_length, $chars);
+    session_start();
+    $_SESSION["generated-password"] = generate_random_password($password_length, $chars);
+
+    header("Location: ./showPassword.php");
+
+    // $generated_password = generate_random_password($password_length, $chars);
 }
